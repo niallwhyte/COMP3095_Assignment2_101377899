@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "f9f7b67e-47a8-4253-bfd4-d2e29270b087",
+		"name": "COMP3095-Assignment2-Friends",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29749438"
+	},
+	"item": [
+		{
+			"name": "Create Friend Request",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "\thttp://keycloak:8080/auth/realms/springsocial-realm/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "FrTiqOYtbvA5fV8FNaOXLCfvmgPKthJG",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "springsocial-cloud-client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requesterId\" : \"657284c485892e77b1d1fa33\",\n    \"requesteeId\" : \"657284d485892e77b1d1fa34\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/friendships/request",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"friendships",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Friend Requests",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "\thttp://keycloak:8080/auth/realms/springsocial-realm/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "FrTiqOYtbvA5fV8FNaOXLCfvmgPKthJG",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "springsocial-cloud-client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/friendships/requests/657284d485892e77b1d1fa34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"friendships",
+						"requests",
+						"657284d485892e77b1d1fa34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Friend Request",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "\thttp://keycloak:8080/auth/realms/springsocial-realm/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "FrTiqOYtbvA5fV8FNaOXLCfvmgPKthJG",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "springsocial-cloud-client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/friendships/accept/657284d485892e77b1d1fa34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"friendships",
+						"accept",
+						"657284d485892e77b1d1fa34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Friends of User",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "\thttp://keycloak:8080/auth/realms/springsocial-realm/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "FrTiqOYtbvA5fV8FNaOXLCfvmgPKthJG",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "springsocial-cloud-client",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/friendships/friends/657284d485892e77b1d1fa34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"friendships",
+						"friends",
+						"657284d485892e77b1d1fa34"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

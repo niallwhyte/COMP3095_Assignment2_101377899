@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/COMP3095-Assignment1.iml" filepath="$PROJECT_DIR$/.idea/COMP3095-Assignment1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringSocial.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringSocial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway/SpringSocial.api-gateway.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway/SpringSocial.api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway/SpringSocial.api-gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway/SpringSocial.api-gateway.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway/SpringSocial.api-gateway.test.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway/SpringSocial.api-gateway.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/comment-service/SpringSocial.comment-service.iml" filepath="$PROJECT_DIR$/.idea/modules/comment-service/SpringSocial.comment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/comment-service/SpringSocial.comment-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/comment-service/SpringSocial.comment-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/discovery-service/SpringSocial.discovery-service.iml" filepath="$PROJECT_DIR$/.idea/modules/discovery-service/SpringSocial.discovery-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/discovery-service/SpringSocial.discovery-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/discovery-service/SpringSocial.discovery-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/discovery-service/SpringSocial.discovery-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/discovery-service/SpringSocial.discovery-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/friendship-service/SpringSocial.friendship-service.iml" filepath="$PROJECT_DIR$/.idea/modules/friendship-service/SpringSocial.friendship-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/friendship-service/SpringSocial.friendship-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/friendship-service/SpringSocial.friendship-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/post-service/SpringSocial.post-service.iml" filepath="$PROJECT_DIR$/.idea/modules/post-service/SpringSocial.post-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/post-service/SpringSocial.post-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/post-service/SpringSocial.post-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpringSocial.test.iml" filepath="$PROJECT_DIR$/.idea/modules/SpringSocial.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service/SpringSocial.user-service.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service/SpringSocial.user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service/SpringSocial.user-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service/SpringSocial.user-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/friendship-service/com.example.SpringSocial.friendship-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/friendship-service/com.example.SpringSocial.friendship-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/post-service/com.example.SpringSocial.post-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/post-service/com.example.SpringSocial.post-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service/com.example.SpringSocial.user-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service/com.example.SpringSocial.user-service.main.iml" />
+    </modules>
+  </component>
+</project>

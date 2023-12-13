@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.30/f195ee86e6c896ea47a1d39defbe20eb59cd149d/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="com.example.SpringSocial.friendship-service.main" />
+        <module name="com.example.SpringSocial.comment-service.main" />
+        <module name="com.example.SpringSocial.post-service.main" />
+        <module name="com.example.SpringSocial.user-service.main" />
+        <module name="com.example.SpringSocial.main" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="17" />
+      <module name="api-gateway.main" target="17" />
+      <module name="api-gateway.test" target="17" />
+      <module name="discovery-service" target="17" />
+      <module name="discovery-service.main" target="17" />
+      <module name="discovery-service.test" target="17" />
+      <module name="SpringSocial" target="17" />
+      <module name="SpringSocial.api-gateway" target="17" />
+      <module name="SpringSocial.api-gateway.main" target="17" />
+      <module name="SpringSocial.api-gateway.test" target="17" />
+      <module name="SpringSocial.comment-service" target="17" />
+      <module name="SpringSocial.comment-service.main" target="17" />
+      <module name="SpringSocial.comment-service.test" target="17" />
+      <module name="SpringSocial.discovery-service" target="17" />
+      <module name="SpringSocial.discovery-service.main" target="17" />
+      <module name="SpringSocial.discovery-service.test" target="17" />
+      <module name="SpringSocial.friendship-service" target="17" />
+      <module name="SpringSocial.friendship-service.main" target="17" />
+      <module name="SpringSocial.friendship-service.test" target="17" />
+      <module name="SpringSocial.main" target="17" />
+      <module name="SpringSocial.post-service" target="17" />
+      <module name="SpringSocial.post-service.main" target="17" />
+      <module name="SpringSocial.post-service.test" target="17" />
+      <module name="SpringSocial.test" target="17" />
+      <module name="SpringSocial.user-service" target="17" />
+      <module name="SpringSocial.user-service.main" target="17" />
+      <module name="SpringSocial.user-service.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

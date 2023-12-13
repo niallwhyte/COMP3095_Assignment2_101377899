@@ -1,0 +1,199 @@
+version: '3.8'
+
+services:
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    ports:
+      - "9411:9411"
+    restart: unless-stopped
+    container_name: zipkin
+    networks:
+      - spring
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootadmin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./data/mongo/users:/data/db
+      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring
+
+  postgresql:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: springsocialdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres/springsocial:/var/lib/postgresql/data
+      - ./init/postgres/springsocial/init.sql:/docker-entrypoint-initdb.d/init.sql
+    container_name: postgresql
+    restart: unless-stopped
+    networks:
+      - spring
+
+  postgres-keycloak:
+    image: postgres
+    ports:
+      - "5431:5432"
+    environment:
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=keycloak
+      - PGDATA:/data/postgres
+    volumes:
+      - ./data/postgres/postgres-keycloak:/data/postgres
+    container_name: postgres-keycloak
+    restart: unless-stopped
+    networks:
+      - spring
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8888:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.ca
+      - PGADMIN_DEFAULT_PASSWORD=password
+    container_name: pgadmin-order
+    restart: unless-stopped
+    networks:
+      - spring
+
+  #Micro-Services
+
+  keycloak:
+    image: jboss/keycloak
+    ports:
+      - "8080:8080"
+    container_name: keycloak
+    environment:
+      JBOSS_LOG_MANAGER_ROOT_LOGGER: DEBUG
+      DB_VENDOR: postgres
+      DB_ADDR: postgres-keycloak
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: password
+      KEYCLOAK_IMPORT: /opt/jboss/keycloak/realms/springsocial-realm.json
+    volumes:
+      - ./realms/:/opt/jboss/keycloak/realms
+    depends_on:
+      - discovery-service
+    restart: unless-stopped
+    networks:
+      - spring
+
+  api-gateway:
+    image: api-gateway
+    ports:
+      - "8181:8181"
+    build:
+      context: ./api-gateway
+      dockerfile: ./Dockerfile
+    container_name: api-gateway
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      eureka.client.service-url.defaultZone: http://discovery-service:8761/eureka/
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
+    depends_on:
+      - discovery-service
+    restart: unless-stopped
+    networks:
+      - spring
+
+  discovery-service:
+    image: discovery-service
+    ports:
+      - "8761:8761"
+    build:
+      context: ./discovery-service
+      dockerfile: ./Dockerfile
+    container_name: discovery-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      - spring
+
+  user-service:
+    image: user-service
+    ports:
+      - "8088:8088"
+    build:
+      context: ./user-service
+      dockerfile: ./Dockerfile
+    container_name: user-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - discovery-service
+      - mongodb
+    networks:
+      - spring
+
+  post-service:
+    image: post-service
+    build:
+      context: ./post-service
+      dockerfile: ./Dockerfile
+    container_name: post-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - discovery-service
+      - postgresql
+    networks:
+      - spring
+
+  comment-service:
+    image: comment-service
+    build:
+      context: ./comment-service
+      dockerfile: ./Dockerfile
+    container_name: comment-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - discovery-service
+      - postgresql
+    networks:
+      - spring
+
+  friendship-service:
+    image: friendship-service
+    build:
+      context: ./friendship-service
+      dockerfile: ./Dockerfile
+    container_name: friendship-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - discovery-service
+      - postgresql
+    networks:
+      - spring
+
+networks:
+  spring:
+    driver: bridge
+
+volumes:
+  postgres-data:
